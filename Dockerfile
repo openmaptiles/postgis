@@ -30,10 +30,10 @@ RUN curl -o /opt/postgis.tar.gz http://download.osgeo.org/postgis/source/postgis
  && make install \
  && ldconfig
 
-ENV     VT_UTIL_DIR=/opt/postgis-vt-util \
-        VT_UTIL_URL="https://raw.githubusercontent.com/mapbox/postgis-vt-util/v1.0.0/postgis-vt-util.sql"
+ENV VT_UTIL_DIR=/opt/postgis-vt-util \
+    VT_UTIL_URL="https://raw.githubusercontent.com/mapbox/postgis-vt-util/v1.1.0/postgis-vt-util.sql"
 
-RUN mkdir -p $VT_UTIL_DIR && wget -P $VT_UTIL_DIR --quiet "$VT_UTIL_URL"
+RUN mkdir -p $VT_UTIL_DIR && wget -P $VT_UTIL_DIR "$VT_UTIL_URL"
 
  ##&& (cd /opt/postgis/extensions/postgis && make -j && make install) \
 COPY ./initdb-postgis.sh /docker-entrypoint-initdb.d/10_postgis.sh
