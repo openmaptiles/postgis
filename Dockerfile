@@ -8,6 +8,7 @@ RUN apt-get -y update \
  && apt-get -y --no-install-recommends install \
         curl \
         wget \
+        ca-certificates \ 
         build-essential cmake \
         # PostGIS build dependencies
 		postgresql-server-dev-$PG_MAJOR libxml2-dev libjson0-dev libproj-dev libgdal-dev \
