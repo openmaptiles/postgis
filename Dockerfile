@@ -7,6 +7,7 @@ ENV POSTGIS_MAJOR=2.3 \
 RUN apt-get -y update \
  && apt-get -y --no-install-recommends install \
         curl \
+        wget \
         build-essential cmake \
         # PostGIS build dependencies
 		postgresql-server-dev-$PG_MAJOR libxml2-dev libjson0-dev libproj-dev libgdal-dev \
@@ -27,6 +28,11 @@ RUN curl -o /opt/postgis.tar.gz http://download.osgeo.org/postgis/source/postgis
  && make \
  && make install \
  && ldconfig
+
+ENV     VT_UTIL_DIR=/opt/postgis-vt-util \
+        VT_UTIL_URL="https://raw.githubusercontent.com/mapbox/postgis-vt-util/v1.0.0/postgis-vt-util.sql"
+
+RUN mkdir -p $VT_UTIL_DIR && wget -P $VT_UTIL_DIR --quiet "$VT_UTIL_URL"
 
  ##&& (cd /opt/postgis/extensions/postgis && make -j && make install) \
 COPY ./initdb-postgis.sh /docker-entrypoint-initdb.d/10_postgis.sh
