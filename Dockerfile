@@ -9,7 +9,7 @@ RUN apt-get -y update \
         autotools-dev \
         automake \
         autoconf \
-        bison
+        bison \
         curl \
         git \
         libtool \
