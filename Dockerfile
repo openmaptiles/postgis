@@ -85,28 +85,3 @@ RUN cd /opt/ \
 
  ##&& (cd /opt/postgis/extensions/postgis && make -j && make install) \
 COPY ./initdb-postgis.sh /docker-entrypoint-initdb.d/10_postgis.sh
-
-RUN apt-get purge -y \
-        autoconf \
-        automake \
-        autotools-dev \
-        build-essential \
-        ca-certificates \
-        cmake \
-        curl \
-        dblatex \
-        docbook-mathml \
-        docbook-xsl \
-        git \
-        libcunit1-dev \
-        libkakasi2-dev \
-        libtool \
-        pandoc \
-        unzip \
-        xsltproc \
-        # PostGIS build dependencies
-            libgdal-dev \
-            libjson0-dev \
-            libproj-dev \
-            libxml2-dev \
- && rm -rf /var/lib/apt/lists/*
