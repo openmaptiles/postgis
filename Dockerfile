@@ -85,7 +85,7 @@ RUN apt-get -qq -y update \
  && make install \
  && rm -rf /opt/mapnik-german-l10n \
 ## Cleanup
- && apt-get -qq -y purge \
+ && apt-get -qq -y --auto-remove purge \
         autoconf \
         automake \
         autotools-dev \
@@ -101,6 +101,10 @@ RUN apt-get -qq -y update \
         libcunit1-dev \
         libkakasi2-dev \
         libtool \
+        make \
+        g++ \
+        gcc \
+        libc6-dev \
         pandoc \
         unzip \
         xsltproc \
