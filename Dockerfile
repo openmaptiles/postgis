@@ -113,6 +113,7 @@ RUN apt-get -qq -y update \
             libjson0-dev \
             libproj-dev \
             libxml2-dev \
+            postgresql-server-dev-$PG_MAJOR \
 && rm -rf /var/lib/apt/lists/*
 
 COPY ./initdb-postgis.sh /docker-entrypoint-initdb.d/10_postgis.sh
