@@ -1,4 +1,4 @@
-FROM postgres:9.6
+FROM postgres:11
 MAINTAINER "Lukas Martinelli <me@lukasmartinelli.ch>"
 ENV POSTGIS_VERSION=2.5.1 \
     GEOS_VERSION=3.7.1 \
