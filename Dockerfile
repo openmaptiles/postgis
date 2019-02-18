@@ -114,6 +114,7 @@ RUN apt-get -qq -y update \
         libxml2-dev \
         libjson-c-dev \
         libgdal-dev \
+&& rm -rf /usr/local/lib/*.a \
 && rm -rf /var/lib/apt/lists/*
 
 COPY ./initdb-postgis.sh /docker-entrypoint-initdb.d/10_postgis.sh
