@@ -110,7 +110,7 @@ RUN apt-get -qq -y update \
         unzip \
         xsltproc \
         libpq-dev \
-        postgresql-server-dev-9.6 \
+        postgresql-server-dev-$PG_MAJOR \
         libxml2-dev \
         libjson-c-dev \
         libgdal-dev \
