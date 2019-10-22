@@ -30,10 +30,10 @@ ARG POSTGRES_MAJOR
 ARG POSTGIS_MAJOR
 ARG OSML10N_VER=2.5.7
 
-COPY --from=l10n /tmp/postgresql-${POSTGRES_MAJOR}-osml10n_${OSML10N_VER}_amd64.deb /tmp
+COPY --from=l10n /tmp/postgresql-${POSTGRES_MAJOR}-osml10n_${OSML10N_VER}_*.deb /tmp
 
 RUN apt-get update \
-   && apt-get install -y postgresql-${POSTGRES_MAJOR}-postgis-${POSTGIS_MAJOR} /tmp/postgresql-${POSTGRES_MAJOR}-osml10n_${OSML10N_VER}_amd64.deb \
+   && apt-get install -y postgresql-${POSTGRES_MAJOR}-postgis-${POSTGIS_MAJOR} /tmp/postgresql-${POSTGRES_MAJOR}-osml10n_${OSML10N_VER}_*.deb \
    && rm -rf /var/lib/apt/lists/*
 
 COPY ./initdb-postgis.sh /docker-entrypoint-initdb.d/10_postgis.sh
